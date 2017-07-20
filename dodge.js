@@ -52,11 +52,11 @@ function domloaded(){
 
 		for(i=0; i<attackers.length; i++) {
 
-			if(attackers[i].x + attackers[i].dx + squaresWidth > canvas.width || attackers[i].x + attackers[i].dx < squaresWidth) {
+			if(attackers[i].x  + squaresWidth> canvas.width || attackers[i].x < 0) {
 				    attackers[i].dx = -attackers[i].dx;
 			}
 
-			if(attackers[i].y + attackers[i].dy + squaresWidth > canvas.height || attackers[i].y + attackers[i].dy < squaresWidth) {
+			if(attackers[i].y  + squaresWidth > canvas.height || attackers[i].y < 0) {
 				    attackers[i].dy = -attackers[i].dy;
 			}
 			
