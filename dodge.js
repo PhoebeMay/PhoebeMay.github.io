@@ -104,7 +104,7 @@ function domloaded(){
 	}
 
 	function spawnAttacker() {
-		var newSquare = {x: Math.random()*(canvas.width - squaresWidth/2), y: Math.random()*(canvas.height - squaresWidth/2), dx: Math.random(), dy: Math.random(), color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)};
+		var newSquare = {x: Math.random()*(canvas.width - squaresWidth), y: canvas.height - squaresWidth, dx: Math.random(), dy: Math.random(), color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)};
 		attackers.push(newSquare);
 		attackersCount++;
 	}
