@@ -12,11 +12,13 @@ function domloaded(){
 	var squaresWidth = 25;
 	var x = canvas.width/2 - squaresWidth/2;
 	var y = canvas.height/2 - squaresWidth/2;
-	var dx = (Math.random() - 0.5)*6;
-	var dy = (Math.random() - 0.5)*6;
+	var dx = (Math.random() - 0.5)*10;
+	var dy = (Math.random() - 0.5)*10;
 
 	var paddleWidth = 50;
 	var paddleHeight = 5;
+
+	ctx.fillStyle = 'white';
 
 	var p1x = canvas.width/2;
 	var p2x = canvas.width/2;
@@ -32,6 +34,13 @@ function domloaded(){
 	function draw() {
 
 	    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	    ctx.beginPath();
+		ctx.rect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "#730099";
+		ctx.fill();
+		ctx.closePath();
+		ctx.fillStyle = 'white';
 
 	    drawPut();
 
