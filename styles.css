@@ -1,0 +1,35 @@
+* { padding: 0 ; margin: 10 }
+
+canvas { background: white; display: block; margin: 0 auto; }
+    	
+#button1 {
+    padding-top: 10px;
+}
+
+.jumbotron {
+    background-color: #9bc0ff; 
+}
+
+
+.jumbotron h1 {
+
+color: white;
+font-size: 48px;
+
+//font-family: 'Shift', sans-serif;
+//font-weight: bold;
+
+}
+
+.page-header {
+	border : 0;
+}
+
+body {
+    background-color: #a5a5a5;
+    color: white;
+}
+
+a {
+    color: #66ffcc;
+}

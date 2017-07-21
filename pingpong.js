@@ -18,7 +18,7 @@ function domloaded(){
 	var paddleWidth = 50;
 	var paddleHeight = 5;
 
-	ctx.fillStyle = 'white';
+	ctx.fillStyle = '#595959';
 
 	var p1x = canvas.width/2;
 	var p2x = canvas.width/2;
@@ -35,12 +35,14 @@ function domloaded(){
 
 	    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+	    /**
 	    ctx.beginPath();
 		ctx.rect(0, 0, canvas.width, canvas.height);
 		ctx.fillStyle = "#730099";
 		ctx.fill();
 		ctx.closePath();
 		ctx.fillStyle = 'white';
+		**/
 
 	    drawPut();
 
