@@ -110,7 +110,6 @@ function domloaded(){
 
 		y += dy;
 		x += dx;
-
 	}
 
 	function moveP1(){
@@ -131,7 +130,6 @@ function domloaded(){
 		if(leftPressed && p2x>0) {
 		    p2x -= 5;
 		}
-
 	}	
 
 
