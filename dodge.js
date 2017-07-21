@@ -12,8 +12,8 @@ function domloaded(){
 	var squaresWidth = 25;
 	var x = canvas.width/2 - squaresWidth/2;
 	var y = canvas.height/2 - squaresWidth/2;
-	var dx = 4;
-	var dy = 4;
+	var dx = 6;
+	var dy = 6;
 
 	var rightPressed = false;
 	var leftPressed = false;
@@ -23,7 +23,11 @@ function domloaded(){
 	var attackers = [];
 	var attackersCount = 0;
 
+	var drawAnimation;
+	
 	function draw() {
+
+		drawAnimation = requestAnimationFrame(draw);
 
 	    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -104,7 +108,7 @@ function domloaded(){
 	}
 
 	function spawnAttacker() {
-		var newSquare = {x: Math.random()*(canvas.width - squaresWidth), y: canvas.height - squaresWidth, dx: (Math.random()-0.5)*2, dy: (Math.random()-0.5)*2, color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)};
+		var newSquare = {x: Math.random()*(canvas.width - squaresWidth), y: canvas.height - squaresWidth, dx: (Math.random()-0.5)*3, dy: (Math.random()-0.5)*3, color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)};
 		attackers.push(newSquare);
 		attackersCount++;
 	}
@@ -158,7 +162,8 @@ function domloaded(){
 	}
 
 	function gameOver() {
-				clearInterval(drawInterval);
+				//clearInterval(drawInterval);
+				cancelAnimationFrame(drawAnimation);
 				clearInterval(spawnInterval);
 		        ctx.fillStyle = "red";
 		        ctx.textAlign = 'center';
@@ -173,7 +178,10 @@ function domloaded(){
 
 	document.addEventListener("keydown", keyDownHandler, false);
 	document.addEventListener("keyup", keyUpHandler, false);
-	drawInterval = setInterval(draw, 10);
+	//drawInterval = setInterval(draw, 10);
+
+	draw();
+
 	spawnInterval = setInterval(spawnAttacker, 1000);
 
 
