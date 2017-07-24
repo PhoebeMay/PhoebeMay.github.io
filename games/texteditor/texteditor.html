@@ -48,7 +48,7 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 <div class="btn-group" role="group">
   <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleColorControl()" >Change colours</button>
   <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
-  <button type="button" class="btn btn-secondary" id = "loadBurron"> <label for="file" >Load file</label></button>
+  <button type="button" class="btn btn-secondary" id = "loadBurron"> <label for="file" >Load text</label></button>
 </div>
 </div>
 
@@ -121,7 +121,7 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
           document.getElementById('body').innerText = body;
 
         };
-        
+
         reader.readAsText(input.files[0]);
 
   };
