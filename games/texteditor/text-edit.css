@@ -1,0 +1,42 @@
+body {
+    text-align: left;
+    padding-left: 7%;
+}
+
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+   background-color: 'red';
+   color: 'red';
+   text-align: center;
+}
+
+
+.modal-dialog {
+	color: black;
+}
+
+
+#background-control {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background-color: 'red';
+   color: 'red';
+   text-align: center;
+   padding: 10;
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+#editor {
+white-space: pre-wrap;
+
+}

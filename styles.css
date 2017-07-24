@@ -1,6 +1,9 @@
 * { padding: 0 ; margin: 10 }
 
-canvas { background: white; display: block; margin: 0 auto; }
+canvas { 
+	background: white; 
+	display: block; 
+	margin: 0 auto; }
     	
 #button1 {
     padding-top: 10px;
@@ -23,12 +26,13 @@ font-size: 48px;
 }
 
 
-body {
-    background-color: #a5a5a5;
-    color: white;
-    text-align: center;
-}
-
 a {
     color: #66ffcc;
+}
+
+
+body {
+	background-color: #a5a5a5;
+    color: white;
+    text-align: center;
 }

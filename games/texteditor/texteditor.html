@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Text Editor</title>
   <meta charset="utf-8">
@@ -7,30 +8,92 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="icon" href="../../icon.png">
   <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="text-edit.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="jscolor.js"></script>
+  <script src="FileSaver.js"></script>
 
 </head>
 <body>
 
 <div class="container">
- 
 <div id="editor">
     <h1 id="title">Page Title</h1>
     <p id="body">Page content</p>
 </div>
+</div>
+
+
+
+
+<div class = "container" id = "footer">
+
+<div class = "row" id = "background-colour"> 
+<p>
+Background colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
+Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateText(this.jscolor)"> 
+
+</p>
+</div>
+
+<div class = "row"> 
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleColorControl()" >Change colours</button>
+  <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
+</div>
+</div>
 
 
 </div>
 
+
+
+
+
 <script type="text/javascript">
-  
-  var editBtn = document.getElementById('editBtn');
+
   var title = document.getElementById('title');
   var body = document.getElementById('body');
+  var backgroundPannel = document.getElementById("background-colour");
+  var backgroundButton = document.getElementById('backgroundButton');
+  var colorPicker = document.getElementById('colorPicker');
 
+  backgroundPannel.style.display = 'none';
   title.contentEditable = 'true';
   body.contentEditable = 'true';
+
+
+  function toggleColorControl() { 
+    if (backgroundPannel.style.display === 'none') {
+        backgroundPannel.style.display = 'block';
+    } else {
+        backgroundPannel.style.display = 'none';
+    }
+  }
+
+
+  function updateBackground(jscolor) {
+    document.body.style.backgroundColor = '#' + jscolor;
+  }
+
+  function updateText(jscolor) {
+    document.getElementById("editor").style.color = '#' + jscolor;
+  }
+
+
+
+  function download() {
+    var header_text = document.getElementById('title').innerText;
+    var body_text = document.getElementById('body').innerText;
+    var text = header_text + ' ' + '\n\n' + body_text;
+    console.log(text);
+    var filename = "my_text";
+    var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, filename+".txt");
+  }
+
+
 
 </script>
 
