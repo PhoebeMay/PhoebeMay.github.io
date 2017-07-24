@@ -41,6 +41,3 @@ function domloaded(){
 
 }
 
-function pencil(){
-		console.log("Painting");
-}
