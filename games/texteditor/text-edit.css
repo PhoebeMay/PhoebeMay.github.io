@@ -20,17 +20,6 @@ body {
 }
 
 
-#background-control {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   background-color: 'red';
-   color: 'red';
-   text-align: center;
-   padding: 10;
-}
 
 [contenteditable="true"]:focus {
     outline: none;
@@ -39,4 +28,18 @@ body {
 #editor {
 white-space: pre-wrap;
 
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+label {
+    font-weight: normal !important;
+    height: 0px;
 }

@@ -27,20 +27,28 @@
 
 
 
+
 <div class = "container" id = "footer">
+
+<div class = "row" id = "file-input"> 
+<input type='file' name = 'file' class = 'inputfile' accept='text/plain' id='file' onchange='openFile(event)'>
+</div>
+
 
 <div class = "row" id = "background-colour"> 
 <p>
 Background colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
 Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateText(this.jscolor)"> 
-
 </p>
 </div>
+
+
 
 <div class = "row"> 
 <div class="btn-group" role="group">
   <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleColorControl()" >Change colours</button>
   <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
+  <button type="button" class="btn btn-secondary" id = "loadBurron"> <label for="file" >Load file</label></button>
 </div>
 </div>
 
@@ -55,6 +63,7 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
   var title = document.getElementById('title');
   var body = document.getElementById('body');
+  var filePannel = document.getElementById('file-input');
   var backgroundPannel = document.getElementById("background-colour");
   var backgroundButton = document.getElementById('backgroundButton');
   var colorPicker = document.getElementById('colorPicker');
@@ -86,12 +95,36 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
   function download() {
     var header_text = document.getElementById('title').innerText;
     var body_text = document.getElementById('body').innerText;
-    var text = header_text + ' ' + '\n\n' + body_text;
-    console.log(text);
+    var text = header_text + '\n' + body_text;
     var filename = "my_text";
     var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
     saveAs(blob, filename+".txt");
   }
+
+  function openFile(event) {
+
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function(){
+          var text = reader.result;
+          var pivot = text.indexOf("\n");
+ 
+
+          var header = text.substring(0,pivot);
+          var body = text.substring(pivot+1);
+
+         // var node = document.getElementById('output');
+          //node.innerText = text;
+
+          document.getElementById('title').innerText = header;
+          document.getElementById('body').innerText = body;
+
+        };
+        
+        reader.readAsText(input.files[0]);
+
+  };
 
 
 
