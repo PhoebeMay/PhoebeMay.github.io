@@ -70,18 +70,19 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
   backgroundPannel.style.display = 'none';
 
-  // support for shitty browsers i think
+
   title.contentEditable = 'true';
   body.contentEditable = 'true';
+  //can also set = 'plaintext-only' to avoid pasting hack but no support for firefox
 
-  title.contentEditable = 'plaintext-only';
-  body.contentEditable = 'plaintext-only';
+  getCookieColors();
 
 
   function toggleColorControl() { 
     if (backgroundPannel.style.display === 'none') {
         backgroundPannel.style.display = 'block';
-    } else {
+    } 
+    else {
         backgroundPannel.style.display = 'none';
     }
   }
@@ -89,12 +90,61 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
   function updateBackground(jscolor) {
     document.body.style.backgroundColor = '#' + jscolor;
+    console.log("Updating background");
+    console.log("Cookie was: " +  document.cookie);
+    setCookieBackground('#' + jscolor);
+    console.log("Cookie is now: " + document.cookie);
   }
+
 
   function updateText(jscolor) {
     document.getElementById("editor").style.color = '#' + jscolor;
+    console.log("Updating text");
+    console.log("Cookie was: " +  document.cookie);
+    setCookieTextColor('#' + jscolor);
+    console.log("Cookie is now: " + document.cookie);
   }
 
+
+  function setCookieBackground(color) {
+    index = document.cookie.indexOf("Background color: ");
+    if (index === -1) {
+      console.log("Resetting cookie");
+      document.cookie = "Text color: #ffffff, Background color: " + color;
+      console.log("Reset cookie to: " + document.cookie);
+    }
+    else {
+      document.cookie =  document.cookie.substring(0, index + "Background color: ".length) + color ;
+    }
+  }
+
+  function setCookieTextColor(color) {
+    index = document.cookie.indexOf("Text color: ");
+    if (index === -1) {
+      console.log("Resetting cookie");
+      document.cookie = "Text color: " + color + ", Background color: #a5a5a5";
+      console.log("Reset cookie to: " + document.cookie);
+    }
+    else {
+      document.cookie =  document.cookie.substring(0, index + "Text color: ".length) + color + document.cookie.substring(index + "Text color: ".length + 7);
+    }
+  }
+
+
+  function applyCookieBackgroundColor(){
+    position = document.cookie.indexOf("Background color: ") + "Background color: ".length;
+    backgroundC = document.cookie.substring(position);
+    console.log("Got background as: " + backgroundC);
+    document.body.style.backgroundColor = backgroundC;
+  }
+
+  function applyCookieTextColor(){
+    position = document.cookie.indexOf("Text color: ") + "Text color: ".length;
+    textC = document.cookie.substring(position, position+7);
+    console.log(textC);
+    console.log("Got text color as: " + textC);
+    document.getElementById("editor").style.color = textC;
+  }
 
 
   function download() {
@@ -119,9 +169,6 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
           var header = text.substring(0,pivot);
           var body = text.substring(pivot+2);
 
-         // var node = document.getElementById('output');
-          //node.innerText = text;
-
           document.getElementById('title').innerText = header;
           document.getElementById('body').innerText = body;
 
@@ -131,17 +178,27 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
   };
 
-/**
-  function convertToPlaintext() {
-    var innerText = this.innerText;
-    this.innerHTML = "";
-    this.innerText = innerText;
+  function getCookieColors() {
+    console.log("Page (re)loaded!")
+    document.cookie = "sup bro";
+    console.log("Cookie is " + document.cookie);
+    console.log("Using colors stored in cookie");
+
+    applyCookieBackgroundColor();
+    applyCookieTextColor();
   }
 
-  title.addEventListener("input", convertToPlaintext, false);
-  body.addEventListener("input", convertToPlaintext, false);
-**/
 
+  document.addEventListener("paste", function(e) {
+    // cancel paste
+    e.preventDefault();
+
+    // get text representation of clipboard
+    var text = e.clipboardData.getData("text/plain");
+
+    // insert text manually
+    document.execCommand("insertHTML", false, text);
+  });
 
 
 </script>

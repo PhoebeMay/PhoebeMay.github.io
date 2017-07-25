@@ -25,6 +25,10 @@
     outline: none;
 }
 
+[contenteditable= 'true']:focus {
+    outline: none;
+}
+
 #editor {
 	white-space: pre-wrap;
 	text-align: left;
