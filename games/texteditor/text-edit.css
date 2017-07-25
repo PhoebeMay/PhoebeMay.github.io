@@ -17,6 +17,8 @@
 	color: black;
 }
 
+.btn-group {
+}
 
 
 [contenteditable= 'plaintext-only']:focus {
@@ -24,10 +26,10 @@
 }
 
 #editor {
-white-space: pre-wrap;
-text-align: left;
-margin-left: 10%;
-margin-right: 10%;
+	white-space: pre-wrap;
+	text-align: left;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .inputfile {
