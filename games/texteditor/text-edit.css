@@ -29,6 +29,23 @@
     outline: none;
 }
 
+#header-size {
+	background-color: #a5a5a5;
+	width: 60px;
+	text-align: center;
+}
+
+#body-size {
+	background-color: #a5a5a5;
+	width: 60px;
+	text-align: center;
+}
+
+#colorPicker {
+	width: 60px;
+	text-align: center;
+}
+
 #editor {
 	white-space: pre-wrap;
 	text-align: left;

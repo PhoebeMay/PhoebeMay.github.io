@@ -15,6 +15,7 @@
   <script src="texteditor/FileSaver.js"></script>
 
 </head>
+
 <body>
 
 <div class="container">
@@ -35,10 +36,12 @@
 </div>
 
 
-<div class = "row" id = "background-colour"> 
+<div class = "row" id = "appearance_pannel"> 
 <p>
 Background colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
-Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateText(this.jscolor)"> 
+Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateTextColor(this.jscolor)"> 
+Header font size: <input type="text" id="header-size" > 
+Body font size: <input type="text" id="body-size" >
 </p>
 </div>
 
@@ -46,7 +49,7 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
 <div class = "row"> 
 <div class="btn-group" role="group">
-  <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleColorControl()" >Change colours</button>
+  <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleAppearanceControl()" >Change appearance</button>
   <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
   <button type="button" class="btn btn-secondary" id = "loadBurron"> <label for="file" >Load text</label></button>
 </div>
@@ -64,11 +67,11 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
   var title = document.getElementById('title');
   var body = document.getElementById('body');
   var filePannel = document.getElementById('file-input');
-  var backgroundPannel = document.getElementById("background-colour");
+  var appearancePannel = document.getElementById("appearance_pannel");
   var backgroundButton = document.getElementById('backgroundButton');
   var colorPicker = document.getElementById('colorPicker');
 
-  backgroundPannel.style.display = 'none';
+  appearancePannel.style.display = 'none';
 
 
   try {
@@ -76,7 +79,6 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
     title.contentEditable = 'plaintext-only';
     body.contentEditable = 'plaintext-only';
   }
-
   catch (err) {
     //support for firefox and other browsers
 
@@ -96,15 +98,17 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
       });
   }
 
+  console.log("Cookies are :" + document.cookie);
+
   getCookieColors();
 
 
-  function toggleColorControl() { 
-    if (backgroundPannel.style.display === 'none') {
-        backgroundPannel.style.display = 'block';
+  function toggleAppearanceControl() { 
+    if (appearancePannel.style.display === 'none') {
+        appearancePannel.style.display = 'block';
     } 
     else {
-        backgroundPannel.style.display = 'none';
+        appearancePannel.style.display = 'none';
     }
   }
 
@@ -115,14 +119,14 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
   }
 
 
-  function updateText(jscolor) {
+  function updateTextColor(jscolor) {
     document.getElementById("editor").style.color = '#' + jscolor;
     setCookie('TextColor','#' + jscolor);
   }
 
   function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";";
-}
+  }
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -139,18 +143,7 @@ function getCookie(cname) {
     return "";
 }
 
-
-
-  function applyCookieBackgroundColor(){
-    document.body.style.backgroundColor = getCookie('BackgroundColor');
-  }
-
-  function applyCookieTextColor(){
-    document.getElementById("editor").style.color = getCookie('TextColor');
-  }
-
-
-  function download() {
+function download() {
     var header_text = document.getElementById('title').innerText;
     var body_text = document.getElementById('body').innerText;
     var text = header_text + '\n\n' + body_text;
@@ -159,7 +152,7 @@ function getCookie(cname) {
     saveAs(blob, filename+".txt");
   }
 
-  function openFile(event) {
+function openFile(event) {
 
         var input = event.target;
         var reader = new FileReader();
@@ -181,10 +174,49 @@ function getCookie(cname) {
 
   };
 
-  function getCookieColors() {
-    applyCookieBackgroundColor();
-    applyCookieTextColor();
+function getCookieColors() {
+    document.body.style.backgroundColor = getCookie('BackgroundColor');
+    document.getElementById("editor").style.color = getCookie('TextColor');
+    document.getElementById("title").style.fontSize = getCookie('TitleFontSize');
+    document.getElementById("body").style.fontSize = getCookie('BodyFontSize');
+
+    document.getElementById("header-size").value = getCookie('TitleFontSize');
+    document.getElementById("body-size").value = getCookie('BodyFontSize');
+
+    if (document.getElementById("header-size").value === "") {
+      document.getElementById("header-size").value = "36px";
+    }
+
+    if (document.getElementById("body-size").value  === "") {
+      document.getElementById("body-size").value = "14px";
+    }
+
+
+
+
   }
+
+document.getElementById("header-size").addEventListener('keyup', function(e) {
+    if (e.keyCode == 13) {
+        try {
+         var size = document.getElementById("header-size").value;
+         document.getElementById("title").style.fontSize = size;
+         setCookie('TitleFontSize', size );
+        }
+        catch (err) {console.log(err);}
+    }
+  });
+
+document.getElementById("body-size").addEventListener('keyup', function(e) {
+    if (e.keyCode == 13) {
+        try {
+         var size = document.getElementById("body-size").value;
+         document.getElementById("body").style.fontSize = size;
+         setCookie('BodyFontSize', size );
+        }
+        catch (err) {console.log(err);}
+    }
+  });
 
 
 
