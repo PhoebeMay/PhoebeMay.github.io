@@ -1,13 +1,25 @@
-* { padding: 0 ; margin: 10 }
+* { 
+    padding: 0; 
+    margin: 0;
+}
 
 canvas { 
 	background: white; 
 	display: block; 
-	margin: 0 auto; }
-    	
-#button1 {
-    padding-top: 10px;
+	margin: 0 auto; 
 }
+    	
+a {
+    color: #66ffcc;
+}
+
+
+body {
+    background-color: #a5a5a5;
+    color: white;
+    text-align: center;
+}
+
 
 .jumbotron {
     background-color: #9bc0ff; 
@@ -15,24 +27,14 @@ canvas {
 
 
 .jumbotron h1 {
-
-color: white;
-font-size: 48px;
-
+    color: white;
+    font-size: 48px;
 }
 
 .page-header {
 	border : 0;
 }
 
-
-a {
-    color: #66ffcc;
-}
-
-
-body {
-	background-color: #a5a5a5;
-    color: white;
-    text-align: center;
+#button1 {
+    padding-top: 10px;
 }

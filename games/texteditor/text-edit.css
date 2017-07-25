@@ -1,30 +1,10 @@
-
-
-
-
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:4px;
-   width:100%;
-   text-align: center;
+label {
+    font-weight: normal !important;
+    height: 0px;
 }
-
 
 .modal-dialog {
 	color: black;
-}
-
-.btn-group {
-}
-
-
-[contenteditable= 'plaintext-only']:focus {
-    outline: none;
-}
-
-[contenteditable= 'true']:focus {
-    outline: none;
 }
 
 .btn-secondary{
@@ -35,7 +15,22 @@
 
 }
 
+.jscolor {
+	width: 60px;
+	text-align: center;
+	color: white !important ;
+	border: 0px;
+	background-color: #808080 !important;
+}
 
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
 
 #header-size {
 	background-color: #808080;
@@ -51,14 +46,13 @@
 	border: 0px;
 }
 
-.jscolor {
-	width: 60px;
-	text-align: center;
-	color: white !important ;
-	border: 0px;
-	background-color: #808080 !important;
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:4px;
+   width:100%;
+   text-align: center;
 }
-
 
 #editor {
 	white-space: pre-wrap;
@@ -67,16 +61,10 @@
 	margin-right: 10%;
 }
 
-.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+[contenteditable= 'plaintext-only']:focus {
+    outline: none;
 }
 
-label {
-    font-weight: normal !important;
-    height: 0px;
+[contenteditable= 'true']:focus {
+    outline: none;
 }
