@@ -43,7 +43,7 @@
 	border: 0px;
 }
 
-#colorPicker {
+.jscolor {
 	width: 60px;
 	text-align: center;
 	color: white !important ;

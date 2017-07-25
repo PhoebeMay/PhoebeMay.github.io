@@ -38,8 +38,8 @@
 
 <div class = "row" id = "appearance_pannel"> 
 <p>
-Background colour: <input class="jscolor" value="a5a5a5" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
-Text colour: <input class="jscolor" value="a5a5a5" id = 'colorPicker' onchange="updateTextColor(this.jscolor)"> 
+Background colour: <input class="jscolor" value="a5a5a5" id = 'backgroundColorPicker' onchange="updateBackground(this.jscolor)"> 
+Text colour: <input class="jscolor" value="a5a5a5" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)"> 
 Header font size: <input type="text" id="header-size" > 
 Body font size: <input type="text" id="body-size" >
 </p>
@@ -175,12 +175,25 @@ function openFile(event) {
   };
 
 function getCookieColors() {
-    document.body.style.backgroundColor = getCookie('BackgroundColor');
-    document.getElementById("editor").style.color = getCookie('TextColor');
+    var backgroundColor = getCookie('BackgroundColor');
+    var textColor = getCookie('TextColor')
 
+    if (backgroundColor === "") {
 
+    }
+    else {
+      document.body.style.backgroundColor = backgroundColor;
+      document.getElementById("backgroundColorPicker").value = backgroundColor.substring(1);
+    }
 
-    
+    if (textColor === "") {
+
+    }
+    else {
+      document.getElementById("editor").style.color = textColor;
+      document.getElementById("textColorPicker").value = textColor.substring(1);
+    }
+
     document.getElementById("title").style.fontSize = getCookie('TitleFontSize');
     document.getElementById("body").style.fontSize = getCookie('BodyFontSize');
 
