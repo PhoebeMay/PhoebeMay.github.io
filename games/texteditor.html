@@ -73,12 +73,11 @@ var colorPicker = document.getElementById('colorPicker');
 
 appearancePannel.style.display = 'none';
 
-
 try {
   //chrome and safari
   title.contentEditable = 'plaintext-only';
   body.contentEditable = 'plaintext-only';
-}
+} 
 catch (err) {
   //support for firefox and other browsers
   title.contentEditable = 'true';
@@ -96,9 +95,7 @@ catch (err) {
     });  
 }
 
-
 getCookieSettings();
-
 
 function toggleAppearanceControl() { 
   if (appearancePannel.style.display === 'none') {
