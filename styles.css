@@ -35,6 +35,7 @@ body {
 	border : 0;
 }
 
-#button1 {
-    padding-top: 10px;
+.btn-default {
+    margin-top: 10px;
+    color: #808080 ;
 }
