@@ -146,7 +146,7 @@ function getCookie(cname) {
 function download() {
     var header_text = document.getElementById('title').innerText;
     var body_text = document.getElementById('body').innerText;
-    var text = header_text + '\n\n' + body_text;
+    var text = header_text + '\r\n\r\n' + body_text;
     var filename = "my_text";
     var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
     saveAs(blob, filename+".txt");
@@ -159,11 +159,11 @@ function openFile(event) {
 
         reader.onload = function(){
           var text = reader.result;
-          var pivot = text.indexOf("\n\n");
+          var pivot = text.indexOf("\r\n\r\n");
  
 
           var header = text.substring(0,pivot);
-          var body = text.substring(pivot+2);
+          var body = text.substring(pivot+4);
 
           document.getElementById('title').innerText = header;
           document.getElementById('body').innerText = body;
