@@ -7,8 +7,6 @@
    left:0px;
    bottom:4px;
    width:100%;
-   background-color: 'red';
-   color: 'red';
    text-align: center;
 }
 
@@ -29,15 +27,25 @@
     outline: none;
 }
 
+.btn-secondary{
+
+    background: rgb(200, 200, 200); /* Fall-back for browsers that don't
+                                    support rgba */
+    background: rgba(200, 200, 200, .5);
+
+}
+
+
+
 #header-size {
-	background-color: #a5a5a5;
+	background-color: #808080;
 	width: 60px;
 	text-align: center;
 	border: 0px;
 }
 
 #body-size {
-	background-color: #a5a5a5;
+	background-color: #808080;
 	width: 60px;
 	text-align: center;
 	border: 0px;
@@ -48,7 +56,7 @@
 	text-align: center;
 	color: white !important ;
 	border: 0px;
-	background-color: #a5a5a5 !important;
+	background-color: #808080 !important;
 }
 
 
