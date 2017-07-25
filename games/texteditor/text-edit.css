@@ -1,13 +1,4 @@
 
-bodyyy {
-    text-align: left;
-    padding-left: 0px;
-    padding-right: 0px;
-    border: 0px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 
@@ -28,7 +19,7 @@ bodyyy {
 
 
 
-[contenteditable="true"]:focus {
+[contenteditable= 'plaintext-only']:focus {
     outline: none;
 }
 
