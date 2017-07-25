@@ -92,7 +92,7 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
     document.body.style.backgroundColor = '#' + jscolor;
     console.log("Updating background");
     console.log("Cookie was: " +  document.cookie);
-    setCookieBackground('#' + jscolor);
+    setCookie('BackgroundColor', '#' + jscolor);
     console.log("Cookie is now: " + document.cookie);
   }
 
@@ -101,49 +101,37 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
     document.getElementById("editor").style.color = '#' + jscolor;
     console.log("Updating text");
     console.log("Cookie was: " +  document.cookie);
-    setCookieTextColor('#' + jscolor);
+    setCookie('TextColor','#' + jscolor);
     console.log("Cookie is now: " + document.cookie);
   }
 
+  function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+}
 
-  function setCookieBackground(color) {
-    index = document.cookie.indexOf("Background color: ");
-    if (index === -1) {
-      console.log("Resetting cookie");
-      document.cookie = "Text color: #ffffff, Background color: " + color;
-      console.log("Reset cookie to: " + document.cookie);
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
-    else {
-      document.cookie =  document.cookie.substring(0, index + "Background color: ".length) + color ;
-    }
-  }
+    return "";
+}
 
-  function setCookieTextColor(color) {
-    index = document.cookie.indexOf("Text color: ");
-    if (index === -1) {
-      console.log("Resetting cookie");
-      document.cookie = "Text color: " + color + ", Background color: #a5a5a5";
-      console.log("Reset cookie to: " + document.cookie);
-    }
-    else {
-      document.cookie =  document.cookie.substring(0, index + "Text color: ".length) + color + document.cookie.substring(index + "Text color: ".length + 7);
-    }
-  }
 
 
   function applyCookieBackgroundColor(){
-    position = document.cookie.indexOf("Background color: ") + "Background color: ".length;
-    backgroundC = document.cookie.substring(position);
-    console.log("Got background as: " + backgroundC);
-    document.body.style.backgroundColor = backgroundC;
+    document.body.style.backgroundColor = getCookie('BackgroundColor');
   }
 
   function applyCookieTextColor(){
-    position = document.cookie.indexOf("Text color: ") + "Text color: ".length;
-    textC = document.cookie.substring(position, position+7);
-    console.log(textC);
-    console.log("Got text color as: " + textC);
-    document.getElementById("editor").style.color = textC;
+    document.getElementById("editor").style.color = getCookie('TextColor');
   }
 
 
@@ -180,7 +168,6 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
 
   function getCookieColors() {
     console.log("Page (re)loaded!")
-    document.cookie = "sup bro";
     console.log("Cookie is " + document.cookie);
     console.log("Using colors stored in cookie");
 
@@ -199,6 +186,51 @@ Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="
     // insert text manually
     document.execCommand("insertHTML", false, text);
   });
+
+
+/**
+  function setCookieBackground(color) {
+    index = document.cookie.indexOf("Background color: ");
+    if (index === -1) {
+      console.log("Resetting cookie");
+      document.cookie = "Text color: #ffffff, Background color: " + color;
+      console.log("Reset cookie to: " + document.cookie);
+    }
+    else {
+      document.cookie =  document.cookie.substring(0, index + "Background color: ".length) + color ;
+    }
+  }
+  function setCookieTextColor(color) {
+    index = document.cookie.indexOf("Text color: ");
+    if (index === -1) {
+      console.log("Resetting cookie");
+      document.cookie = "Text color: " + color + ", Background color: #a5a5a5";
+      console.log("Reset cookie to: " + document.cookie);
+    }
+    else {
+      document.cookie =  document.cookie.substring(0, index + "Text color: ".length) + color + document.cookie.substring(index + "Text color: ".length + 7);
+    }
+  }
+  
+
+  function applyCookieBackgroundColor(){
+    position = document.cookie.indexOf("Background color: ") + "Background color: ".length;
+    backgroundC = document.cookie.substring(position);
+    console.log("Got background as: " + backgroundC);
+    document.body.style.backgroundColor = backgroundC;
+  }
+
+  function applyCookieTextColor(){
+    position = document.cookie.indexOf("Text color: ") + "Text color: ".length;
+    textC = document.cookie.substring(position, position+7);
+    console.log(textC);
+    console.log("Got text color as: " + textC);
+    document.getElementById("editor").style.color = textC;
+  }
+
+
+
+  **/
 
 
 </script>
