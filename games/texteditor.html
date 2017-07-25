@@ -32,14 +32,14 @@
 <div class = "container" id = "footer">
 
 <div class = "row" id = "file-input"> 
-<input type='file' name = 'file' class = 'inputfile' accept='text/plain' id='file' onchange='openFile(event)'>
+<input type='file' name = 'file' class = 'inputfile' accept='text/plain' id='file' onchange='loadText(event)'>
 </div>
 
 
 <div class = "row" id = "appearance_pannel"> 
 <p>
 Background colour: <input class="jscolor" value="a5a5a5" id = 'backgroundColorPicker' onchange="updateBackground(this.jscolor)"> 
-Text colour: <input class="jscolor" value="a5a5a5" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)"> 
+Text colour: <input class="jscolor" value="ffffff" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)"> 
 Header font size: <input type="text" id="header-size" > 
 Body font size: <input type="text" id="body-size" >
 </p>
@@ -140,15 +140,15 @@ function getCookie(cname) {
 }
 
 function download() {
-  var header_text = document.getElementById('title').innerText;
+  var title_text = document.getElementById('title').innerText;
   var body_text = document.getElementById('body').innerText;
-  var text = header_text + '\r\n\r\n' + body_text;
+  var text = title_text + '\r\n\r\n' + body_text;
   var filename = "my_text";
   var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
   saveAs(blob, filename+".txt");
 }
 
-function openFile(event) {
+function loadText(event) {
 
   var input = event.target;
   var reader = new FileReader();
@@ -156,14 +156,36 @@ function openFile(event) {
   reader.onload = function(){
     var text = reader.result;
     var pivot = text.indexOf("\r\n\r\n");
+    var body = "Page content";
+    var title = "Page Title";
 
+    if (pivot > 800) {
+      body = text;
+    }
 
-    var header = text.substring(0,pivot);
-    var body = text.substring(pivot+4);
-
-    document.getElementById('title').innerText = header;
+    else {
+      if (pivot === -1) {
+        pivot = text.indexOf("\n\n");
+        if (pivot == -1) {
+          body = text;
+        }
+        else {
+          if (pivot > 800) {
+              body = text;
+          }
+          else{
+            title = text.substring(0,pivot);
+            body = text.substring(pivot+2);
+          }
+        }
+      }
+      else {
+        title = text.substring(0,pivot);
+        body = text.substring(pivot+4);
+      }
+    }
+    document.getElementById('title').innerText = title;
     document.getElementById('body').innerText = body;
-
   };
 
   reader.readAsText(input.files[0]);
