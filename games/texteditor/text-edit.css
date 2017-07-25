@@ -33,18 +33,24 @@
 	background-color: #a5a5a5;
 	width: 60px;
 	text-align: center;
+	border: 0px;
 }
 
 #body-size {
 	background-color: #a5a5a5;
 	width: 60px;
 	text-align: center;
+	border: 0px;
 }
 
 #colorPicker {
 	width: 60px;
 	text-align: center;
+	color: white !important ;
+	border: 0px;
+	background-color: #a5a5a5 !important;
 }
+
 
 #editor {
 	white-space: pre-wrap;

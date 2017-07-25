@@ -38,8 +38,8 @@
 
 <div class = "row" id = "appearance_pannel"> 
 <p>
-Background colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
-Text colour: <input class="jscolor" value="ab2567" id = 'colorPicker' onchange="updateTextColor(this.jscolor)"> 
+Background colour: <input class="jscolor" value="a5a5a5" id = 'colorPicker' onchange="updateBackground(this.jscolor)"> 
+Text colour: <input class="jscolor" value="a5a5a5" id = 'colorPicker' onchange="updateTextColor(this.jscolor)"> 
 Header font size: <input type="text" id="header-size" > 
 Body font size: <input type="text" id="body-size" >
 </p>
@@ -177,6 +177,10 @@ function openFile(event) {
 function getCookieColors() {
     document.body.style.backgroundColor = getCookie('BackgroundColor');
     document.getElementById("editor").style.color = getCookie('TextColor');
+
+
+
+    
     document.getElementById("title").style.fontSize = getCookie('TitleFontSize');
     document.getElementById("body").style.fontSize = getCookie('BodyFontSize');
 
