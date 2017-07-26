@@ -1,0 +1,7 @@
+﻿Things to-do
+
+File name is header (spaces map to underscores)
+
+Change paint to sketchpad
+
+Add page descriptions somewhere in html
