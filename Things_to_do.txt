@@ -1,8 +1,6 @@
 ﻿Things to do
 
-Error messages for users if things done wrong
-
-Investigate line spacing
+Error messages if things done wrong
 
 Change paint to sketchpad
 
