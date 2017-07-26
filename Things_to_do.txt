@@ -1,0 +1,17 @@
+﻿Things to do
+
+File name is header (spaces map to underscores) -done
+
+Page width customisable (stored in cookie)
+
+Cookies persist beyond browser close -done
+
+Remove px from font size input box
+
+Investigate line spacing
+
+Change paint to sketchpad
+
+Add page descriptions somewhere in html
+
+

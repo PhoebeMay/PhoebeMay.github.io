@@ -95,6 +95,8 @@ catch (err) {
     });  
 }
 
+console.log("Cookie was: " + document.cookie);
+
 getCookieSettings();
 
 function toggleAppearanceControl() { 
@@ -117,7 +119,11 @@ function updateTextColor(jscolor) {
 }
 
 function setCookie(cname, cvalue) {
-  document.cookie = cname + "=" + cvalue + ";";
+  var d = new Date();
+  var exdays = 60;
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   //;
 }
 
@@ -141,6 +147,9 @@ function download() {
   var body_text = document.getElementById('body').innerText;
   var text = title_text + '\r\n\r\n' + body_text;
   var filename = "my_text";
+  if (!(title_text === "")) {
+    filename = title_text.split(' ').join('_');
+  }
   var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
   saveAs(blob, filename+".txt");
 }
