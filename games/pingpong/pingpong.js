@@ -35,15 +35,6 @@ function domloaded(){
 
 	    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	    /**
-	    ctx.beginPath();
-		ctx.rect(0, 0, canvas.width, canvas.height);
-		ctx.fillStyle = "#730099";
-		ctx.fill();
-		ctx.closePath();
-		ctx.fillStyle = 'white';
-		**/
-
 	    drawPut();
 
 	    drawPaddles();
@@ -116,21 +107,21 @@ function domloaded(){
 		if(dPressed && p1x + squaresWidth < canvas.width) {
 		    p1x += 5;
 		}
-		
+
 		if(aPressed && p1x>0) {
 		    p1x -= 5;
-		}	
+		}
 	}
 
 	function moveP2() {
 		if(rightPressed && p2x + squaresWidth < canvas.width) {
 		    p2x += 5;
 		}
-		
+
 		if(leftPressed && p2x>0) {
 		    p2x -= 5;
 		}
-	}	
+	}
 
 
 	function keyDownHandler(e) {
