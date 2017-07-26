@@ -46,6 +46,14 @@ label {
 	border: 0px;
 }
 
+#page-width {
+	background-color: #808080;
+	width: 60px;
+	text-align: center;
+	border: 0px;
+}
+
+
 #footer {
    position:fixed;
    left:0px;
@@ -57,8 +65,9 @@ label {
 #editor {
 	white-space: pre-wrap;
 	text-align: left;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px;
 }
 
 [contenteditable= 'plaintext-only']:focus {

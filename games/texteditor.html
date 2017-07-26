@@ -18,11 +18,9 @@
 
 <body>
 
-<div class="container">
 <div id="editor">
     <h1 id="title">Page Title</h1>
     <p id="body">Page content</p>
-</div>
 </div>
 
 
@@ -42,6 +40,7 @@ Background colour: <input class="jscolor" value="a5a5a5" id = 'backgroundColorPi
 Text colour: <input class="jscolor" value="ffffff" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)"> 
 Header font size: <input type="text" id="header-size" > 
 Body font size: <input type="text" id="body-size" >
+Page width: <input type="text" id="page-width" value = 80%>
 </p>
 </div>
 
@@ -61,7 +60,6 @@ Body font size: <input type="text" id="body-size" >
 
 
 
-
 <script type="text/javascript">
 
 var title = document.getElementById('title');
@@ -70,7 +68,6 @@ var filePannel = document.getElementById('file-input');
 var appearancePannel = document.getElementById("appearance_pannel");
 var backgroundButton = document.getElementById('backgroundButton');
 var colorPicker = document.getElementById('colorPicker');
-
 appearancePannel.style.display = 'none';
 
 try {
@@ -95,7 +92,6 @@ catch (err) {
     });  
 }
 
-console.log("Cookie was: " + document.cookie);
 
 getCookieSettings();
 
@@ -198,6 +194,8 @@ function loadText(event) {
 };
 
 function getCookieSettings() {
+
+  //Set up colors
   var backgroundColor = getCookie('BackgroundColor');
   var textColor = getCookie('TextColor')
 
@@ -211,25 +209,44 @@ function getCookieSettings() {
     document.getElementById("textColorPicker").value = textColor.substring(1);
   }
 
-  document.getElementById("title").style.fontSize = getCookie('TitleFontSize');
-  document.getElementById("body").style.fontSize = getCookie('BodyFontSize');
+  //Set up font sizes
+  document.getElementById("title").style.fontSize = getCookie('TitleFontSize') + 'px';
+  document.getElementById("body").style.fontSize = getCookie('BodyFontSize') + 'px';
 
   document.getElementById("header-size").value = getCookie('TitleFontSize');
   document.getElementById("body-size").value = getCookie('BodyFontSize');
 
   if (document.getElementById("header-size").value === "") {
-    document.getElementById("header-size").value = "36px";
+    //No stored cookie so  use default value
+    document.getElementById("header-size").value = "36";
   }
 
   if (document.getElementById("body-size").value  === "") {
-    document.getElementById("body-size").value = "14px";
+    //No stored cookie so use default value
+    document.getElementById("body-size").value = "14";
+  }
+
+  //Set up page width
+  var margin = (100 - getCookie("PageWidth"))/2;
+
+  if (getCookie("PageWidth") === ""){
+    //No stored cookie so use default value
+   // console.log("Using default settings");
+    document.getElementById("editor").style.marginLeft = "10%";
+    document.getElementById("editor").style.marginRight = "10%";
+     document.getElementById("page-width").value = "80%";
+  }
+  else {
+    document.getElementById("editor").style.marginLeft = margin + "%";
+    document.getElementById("editor").style.marginRight = margin + "%";
+    document.getElementById("page-width").value = getCookie("PageWidth") + "%";
   }
 }
 
 document.getElementById("header-size").addEventListener('keyup', function(e) {
   if (e.keyCode == 13) {
    var size = document.getElementById("header-size").value;
-   document.getElementById("title").style.fontSize = size;
+   document.getElementById("title").style.fontSize = size + 'px';
    setCookie('TitleFontSize', size );
   }
 });
@@ -237,8 +254,28 @@ document.getElementById("header-size").addEventListener('keyup', function(e) {
 document.getElementById("body-size").addEventListener('keyup', function(e) {
   if (e.keyCode == 13) {
    var size = document.getElementById("body-size").value;
-   document.getElementById("body").style.fontSize = size;
+   document.getElementById("body").style.fontSize = size + 'px';
    setCookie('BodyFontSize', size );
+  }
+});
+
+document.getElementById("page-width").addEventListener('keyup', function(e) {
+  if (e.keyCode == 13) {
+   var width = document.getElementById("page-width").value.replace("%", "");
+  // console.log("width specified as " + width );
+   var margin = (100 - width)/2;
+  // console.log("margin is now " + margin);
+
+   if (isNaN(margin)) {
+     // console.log("Invalid input format for changing page width, please enter a percentage");
+      document.getElementById("page-width").value = 80 + "%";
+   }
+   else {
+    document.getElementById("editor").style.marginLeft = margin + "%";
+    document.getElementById("editor").style.marginRight = margin + "%";
+    setCookie('PageWidth',width);
+  }
+
   }
 });
 
