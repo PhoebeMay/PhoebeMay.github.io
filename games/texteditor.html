@@ -5,6 +5,7 @@
   <title>Text Editor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Phoebe Nichols">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="icon" href="../icon.png">
   <link rel="stylesheet" href="../styles.css">
@@ -29,16 +30,16 @@
 
 <div class = "container" id = "footer">
 
-<div class = "row" id = "file-input"> 
+<div class = "row" id = "file-input">
 <input type='file' name = 'file' class = 'inputfile' accept='text/plain' id='file' onchange='loadText(event)'>
 </div>
 
 
-<div class = "row" id = "appearance_pannel"> 
+<div class = "row" id = "appearance_pannel">
 <p>
-Background colour: <input class="jscolor" value="a5a5a5" id = 'backgroundColorPicker' onchange="updateBackground(this.jscolor)"> 
-Text colour: <input class="jscolor" value="ffffff" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)"> 
-Header font size: <input type="text" id="header-size" > 
+Background colour: <input class="jscolor" value="a5a5a5" id = 'backgroundColorPicker' onchange="updateBackground(this.jscolor)">
+Text colour: <input class="jscolor" value="ffffff" id = 'textColorPicker' onchange="updateTextColor(this.jscolor)">
+Header font size: <input type="text" id="header-size" >
 Body font size: <input type="text" id="body-size" >
 Page width: <input type="text" id="page-width" value = 80%>
 </p>
@@ -46,7 +47,7 @@ Page width: <input type="text" id="page-width" value = 80%>
 
 
 
-<div class = "row"> 
+<div class = "row">
 <div class="btn-group" role="group">
   <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleAppearanceControl()" >Change appearance</button>
   <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
@@ -74,7 +75,7 @@ try {
   //chrome and safari
   title.contentEditable = 'plaintext-only';
   body.contentEditable = 'plaintext-only';
-} 
+}
 catch (err) {
   //support for firefox and other browsers
   title.contentEditable = 'true';
@@ -89,15 +90,15 @@ catch (err) {
 
       // insert text manually
       document.execCommand("insertHTML", false, text);
-    });  
+    });
 }
 
 getCookieSettings();
 
-function toggleAppearanceControl() { 
+function toggleAppearanceControl() {
   if (appearancePannel.style.display === 'none') {
       appearancePannel.style.display = 'block';
-  } 
+  }
   else {
       appearancePannel.style.display = 'none';
   }
