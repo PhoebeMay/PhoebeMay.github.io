@@ -4,8 +4,6 @@ Error messages if things done wrong
 
 Change paint to sketchpad
 
-Add page descriptions somewhere in html
-
 
 
 
@@ -19,5 +17,3 @@ Cookies persist beyond browser close -done, cookies now persist for 60 days
 File name is header (spaces map to underscores) -done
 
 Page width customisable (stored in cookie) -done
-
-
