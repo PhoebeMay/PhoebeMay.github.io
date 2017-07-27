@@ -2,18 +2,10 @@
 
 Error messages if things done wrong
 
+
+
 Change paint to sketchpad
-
-
-
-
-
-
-
 Remove px from font size input box -done
-
 Cookies persist beyond browser close -done, cookies now persist for 60 days
-
 File name is header (spaces map to underscores) -done
-
-Page width customisable (stored in cookie) -done
+Page width customizable (stored in cookie) -done
