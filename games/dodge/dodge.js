@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded',domloaded,false);
 function domloaded(){
 
+	if ($(window).height() <= 760) {
+		document.getElementById("header").style.display = 'none';
+	}
+
 	var canvas = document.getElementById("myCanvas");
 	var button1 = document.getElementById('button1');
 	var refreshIntervalId;
@@ -24,7 +28,7 @@ function domloaded(){
 	var attackersCount = 0;
 
 	var drawAnimation;
-	
+
 	function draw() {
 
 		//drawAnimation = requestAnimationFrame(draw);
@@ -47,7 +51,7 @@ function domloaded(){
 
 
 
-	    
+
 
 
 	}
@@ -63,7 +67,7 @@ function domloaded(){
 			if(attackers[i].y  + squaresWidth > canvas.height || attackers[i].y < 0) {
 				    attackers[i].dy = -attackers[i].dy;
 			}
-			
+
 			attackers[i].x += attackers[i].dx;
 			attackers[i].y += attackers[i].dy;
 		}
@@ -85,7 +89,7 @@ function domloaded(){
 		if(rightPressed && x + squaresWidth < canvas.width) {
 		    x += dx;
 		}
-		
+
 		if(leftPressed && x>0) {
 		    x -= dx;
 		}
@@ -96,7 +100,7 @@ function domloaded(){
 
 		if (downPressed && y + squaresWidth < canvas.height) {
 			y = y + dy;
-		}	
+		}
 	}
 
 	function drawMe() {
@@ -155,7 +159,7 @@ function domloaded(){
 
 	function collisionDetection() {
 		for(i=0; i<attackers.length; i++) {
-			if (x + squaresWidth >= attackers[i].x && x<attackers[i].x + squaresWidth && y + squaresWidth >= attackers[i].y && y < attackers[i].y + squaresWidth){ 
+			if (x + squaresWidth >= attackers[i].x && x<attackers[i].x + squaresWidth && y + squaresWidth >= attackers[i].y && y < attackers[i].y + squaresWidth){
 				gameOver();
 			}
 		}
@@ -186,6 +190,15 @@ function domloaded(){
 
 
 }
+
+window.addEventListener('resize', function(e) {
+	if ($(window).height() <= 760) {
+		document.getElementById("header").style.display = 'none';
+	}
+	else {
+		document.getElementById("header").style.display = 'block';
+	}
+}, false);
 
 function newGame(){
 		document.location.reload();

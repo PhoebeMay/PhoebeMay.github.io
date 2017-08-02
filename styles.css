@@ -1,14 +1,14 @@
-* { 
-    padding: 0; 
+* {
+    padding: 0;
     margin: 0;
 }
 
-canvas { 
-	background: white; 
-	display: block; 
-	margin: 0 auto; 
+canvas {
+	background: white;
+	display: block;
+	margin: 3px auto;
 }
-    	
+
 a {
     color: #66ffcc;
 }
@@ -22,7 +22,7 @@ body {
 
 
 .jumbotron {
-    background-color: #9bc0ff; 
+    background-color: #9bc0ff;
 }
 
 
@@ -36,6 +36,6 @@ body {
 }
 
 .btn-default {
-    margin-top: 10px;
+    margin-top: 3px;
     color: #808080 ;
 }

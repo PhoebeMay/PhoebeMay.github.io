@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded',domloaded,false);
 function domloaded(){
 
+	console.log($(window).height());
+	if ($(window).height() <= 760) {
+		document.getElementById("header").style.display = 'none';
+	}
+
 	var canvas = document.getElementById("myCanvas");
 	var button1 = document.getElementById('button1');
 	var refreshIntervalId;
@@ -183,3 +188,12 @@ function newGame(){
 		document.location.reload();
 		button1.style.display = 'none';
 }
+
+window.addEventListener('resize', function(e) {
+	if ($(window).height() <= 760) {
+		document.getElementById("header").style.display = 'none';
+	}
+	else {
+		document.getElementById("header").style.display = 'block';
+	}
+}, false);
