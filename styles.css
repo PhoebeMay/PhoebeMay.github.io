@@ -39,3 +39,11 @@ body {
     margin-top: 3px;
     color: #808080 ;
 }
+
+.jscolor {
+	width: 60px;
+	text-align: center;
+	color: white !important ;
+	border: 0;
+	background-color: #808080 !important;
+}

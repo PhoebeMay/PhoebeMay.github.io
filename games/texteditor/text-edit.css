@@ -15,14 +15,6 @@ label {
 
 }
 
-.jscolor {
-	width: 60px;
-	text-align: center;
-	color: white !important ;
-	border: 0;
-	background-color: #808080 !important;
-}
-
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;

@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded',domloaded,false);
 
+var canvas;
+var ctx;
+var color;
+
+
 function domloaded(){
 
-	console.log($(window).height());
-	if ($(window).height() <= 760) {
-		document.getElementById("header").style.display = 'none';
-	}
 
-	var canvas = document.getElementById("myCanvas");
-	var ctx = canvas.getContext("2d");
+
+	document.getElementById("pen-color").style.display = 'none';
+
+	canvas = document.getElementById("myCanvas");
+	ctx = canvas.getContext("2d");
 	var painting = false;
 	var px = canvas.offsetLeft;
 	var py = canvas.offsetTop;
@@ -44,11 +48,21 @@ function domloaded(){
 	}
 }
 
-window.addEventListener('resize', function(e) {
-	if ($(window).height() <= 760) {
-		document.getElementById("header").style.display = 'none';
+
+function colorBarToggle() {
+	var colorBar = document.getElementById("pen-color");
+	if (colorBar.style.display === 'none') {
+			colorBar.style.display = 'block';
 	}
 	else {
-		document.getElementById("header").style.display = 'block';
+			colorBar.style.display = 'none';
 	}
-}, false);
+}
+
+function redPen() {
+	ctx.strokeStyle = 'red';
+}
+
+function changePenColor(jscolor) {
+	ctx.strokeStyle = "#" + jscolor;
+}
