@@ -128,11 +128,11 @@ function domloaded(){
 		        upPressed = true;
 		        break;
 		    case 39:
-		     	rightPressed = true;
-		     	break;
+			     	rightPressed = true;
+			     	break;
 		    case 40:
-		    	downPressed = true;
-		    	break;
+			    	downPressed = true;
+			    	break;
 		    default:
 		        break;
 		}
