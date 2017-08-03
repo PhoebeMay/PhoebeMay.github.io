@@ -20,37 +20,35 @@
 
 <body>
 
-<div id="editor">
+  <div id="editor">
     <h1 id="title">Page Title</h1>
     <p id="body">Page content</p>
-</div>
+  </div>
 
-<div class = "container" id = "footer">
+  <div class="container" id="footer">
 
-<div class = "row" id = "file-input">
-<input type="file" name = "file" class = "inputfile" accept="text/plain" id="file" onchange="loadText(event)">
-</div>
+    <div class="row" id="file-input">
+      <input type="file" name="file" class="inputfile" accept="text/plain" id="file" onchange="loadText(event)">
+    </div>
 
-<div class = "row" id = "appearance_pannel">
-<p>
-Background colour: <input class="jscolor" value="a5a5a5" id = "backgroundColorPicker" onchange="updateBackground(this.jscolor)">
-Text colour: <input class="jscolor" value="ffffff" id = "textColorPicker" onchange="updateTextColor(this.jscolor)">
-Header font size: <input type="text" id="header-size" >
-Body font size: <input type="text" id="body-size" >
-Page width: <input type="text" id="page-width" value = "80%">
-</p>
-</div>
+    <div class="row" id="appearance_pannel">
+      <p>
+        Background colour: <input class="jscolor" value="a5a5a5" id="backgroundColorPicker" onchange="updateBackground(this.jscolor)"> Text colour: <input class="jscolor" value="ffffff" id="textColorPicker" onchange="updateTextColor(this.jscolor)"> Header
+        font size: <input type="text" id="header-size"> Body font size: <input type="text" id="body-size"> Page width: <input type="text" id="page-width" value="80%">
+      </p>
+    </div>
 
-<div class = "row">
-<div class="btn-group" role="group">
-  <button type="button" class="btn btn-secondary" id = "backgroundButton" onclick = "toggleAppearanceControl()" >
+    <div class="row">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" id="backgroundButton" onclick="toggleAppearanceControl()">
     Change appearance</button>
-  <button type="button" class="btn btn-secondary" id = "saveButton" onclick = "download()">Save text</button>
-  <button type="button" class="btn btn-secondary" id = "loadBurron"> <label for="file" >Load text</label></button>
-</div>
-</div>
+        <button type="button" class="btn btn-secondary" id="saveButton" onclick="download()">Save text</button>
+        <button type="button" class="btn btn-secondary" id="loadBurron"> <label for="file" >Load text</label></button>
+      </div>
+    </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>

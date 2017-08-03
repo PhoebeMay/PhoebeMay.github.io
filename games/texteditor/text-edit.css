@@ -1,65 +1,63 @@
 label {
-    font-weight: normal !important;
-    height: 0;
+  font-weight: normal !important;
+  height: 0;
 }
 
 .modal-dialog {
-	color: black;
+  color: black;
 }
 
-.btn-secondary{
-
-    background: rgb(200, 200, 200); /* Fall-back for browsers that don't
+.btn-secondary {
+  background: rgb(200, 200, 200);
+  /* Fall-back for browsers that don't
                                     support rgba */
-    background: rgba(200, 200, 200, .5);
-
+  background: rgba(200, 200, 200, .5);
 }
 
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 #header-size {
-	background-color: #808080;
-	width: 60px;
-	text-align: center;
-	border: 0;
+  background-color: #808080;
+  width: 60px;
+  text-align: center;
+  border: 0;
 }
 
 #body-size {
-	background-color: #808080;
-	width: 60px;
-	text-align: center;
-	border: 0;
+  background-color: #808080;
+  width: 60px;
+  text-align: center;
+  border: 0;
 }
 
 #page-width {
-	background-color: #808080;
-	width: 60px;
-	text-align: center;
-	border: 0;
+  background-color: #808080;
+  width: 60px;
+  text-align: center;
+  border: 0;
 }
 
-
 #footer {
-   position:fixed;
-   left:0;
-   bottom:4px;
-   width:100%;
-   text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  text-align: center;
 }
 
 #editor {
-	white-space: pre-wrap;
-	text-align: left;
-	margin-left: 0;
-	margin-right: 0;
-	padding: 0;
+  white-space: pre-wrap;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 
 #title {
@@ -70,10 +68,10 @@ label {
   font-size: 20px;
 }
 
-[contenteditable= 'plaintext-only']:focus {
-    outline: none;
+[contenteditable='plaintext-only']:focus {
+  outline: none;
 }
 
-[contenteditable= 'true']:focus {
-    outline: none;
+[contenteditable='true']:focus {
+  outline: none;
 }

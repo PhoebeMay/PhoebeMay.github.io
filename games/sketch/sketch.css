@@ -1,74 +1,74 @@
 h3 {
-	color: white;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-top: 5px;
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 h4 {
-	color: white;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-top: 5px;
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
-
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    background-color: #2d2d2d;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  background-color: #2d2d2d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
 li a {
-    display: block;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-		border-top: 1px solid #bbb;
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-top: 1px solid #bbb;
 }
 
 li:last-child {
-    border-bottom: 1px solid #bbb;;
+  border-bottom: 1px solid #bbb;
+  ;
 }
 
 li a:hover:not(.active) {
-    background-color: #2d2d2d;
-    color: white;
+  background-color: #2d2d2d;
+  color: white;
 }
 
 canvas {
-	  background: white;
-    padding: 0;
-    margin: auto;
-    display: block;
-    width: 600px;
-    height: 600px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  background: white;
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 label {
-    font-weight: normal !important;
-    height: 0;
+  font-weight: normal !important;
+  height: 0;
 }
 
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 #pen-color {
-	right:0;
+  right: 0;
 }
