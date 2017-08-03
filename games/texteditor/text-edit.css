@@ -36,27 +36,27 @@ label {
 	background-color: #808080;
 	width: 60px;
 	text-align: center;
-	border: 0px;
+	border: 0;
 }
 
 #body-size {
 	background-color: #808080;
 	width: 60px;
 	text-align: center;
-	border: 0px;
+	border: 0;
 }
 
 #page-width {
 	background-color: #808080;
 	width: 60px;
 	text-align: center;
-	border: 0px;
+	border: 0;
 }
 
 
 #footer {
    position:fixed;
-   left:0px;
+   left:0;
    bottom:4px;
    width:100%;
    text-align: center;
@@ -65,9 +65,9 @@ label {
 #editor {
 	white-space: pre-wrap;
 	text-align: left;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding: 0px;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
 }
 
 #title {
