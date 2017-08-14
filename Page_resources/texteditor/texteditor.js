@@ -167,7 +167,7 @@ function loadText(event) {
     }
     document.getElementById('title').innerText = title;
     document.getElementById('body').innerText = body;
-  }
+  };
 
   reader.readAsText(input.files[0]);
 }

@@ -75,7 +75,7 @@ function domloaded() {
     if (y + squaresWidth > canvas.height) {
 
       if (x + squaresWidth > p2x && x < p2x + paddleWidth) {
-        dy = -dy
+        dy = -dy;
       } else {
         gameOver();
       }
@@ -84,7 +84,7 @@ function domloaded() {
     if (y < 0) {
 
       if (x + squaresWidth > p1x && x < p1x + paddleWidth) {
-        dy = -dy
+        dy = -dy;
       } else {
         gameOver();
       }
