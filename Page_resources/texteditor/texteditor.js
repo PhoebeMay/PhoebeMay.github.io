@@ -19,7 +19,6 @@ function domloaded() {
   cookies = document.cookie;
   appearancePannel.style.display = 'none';
 
-  console.log("Your cookie was " + cookies);
 
   try {
     //chrome and safari

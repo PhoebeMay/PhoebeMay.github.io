@@ -1,6 +1,9 @@
-﻿Things to do
+Things to do
 
 Error messages if things done wrong
+Make colors in change appearance default to cookie colors by forcing submission of form on reload
+Remove games from url
+Decrease header/body spacing
 
 
 

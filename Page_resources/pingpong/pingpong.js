@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', domloaded, false);
 
 function domloaded() {
 
-  console.log($(window).height());
   if ($(window).height() <= 760) {
     document.getElementById("header").style.display = 'none';
   }
