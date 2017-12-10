@@ -31,7 +31,7 @@
 
 <body>
 
-  <canvas id="myCanvas" width="700" height="700"></canvas>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
 
   <script>
     (function() {
@@ -46,15 +46,6 @@
       function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
-        /**
-    		ctx.beginPath();
-    		ctx.rect(0,0,canvas.width,canvas.height);
-    		ctx.fillStyle = "#000000";
-    		ctx.fill();
-    		ctx.closePath();
-    		console.log("black");
-            **/
 
         if (!running) {
           setInterval(drawStuff, 200);

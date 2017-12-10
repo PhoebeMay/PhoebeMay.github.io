@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bar Chart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Phoebe Nichols">
+  <meta name="description" content="Really stunning bar chart.">
+  <link rel="icon" href="icon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="Page_resources/barchart/Chart.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /* to remove the top and left whitespace */
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    /* just to be sure these are full screen*/
+
+    canvas {
+      display: block;
+    }
+    /* To remove the scrollbars */
+  </style>
+
+<body>
+
+      <canvas id="myChart" width="500" height="500"></canvas>
+      <script>
+      var canvas = document.getElementById("myChart");
+      var ctx = canvas.getContext('2d');
+      var my_data = [randNum(), randNum(), randNum()];
+      var my_colors = [randColor(), randColor(), randColor()]
+      var counter = 0;
+
+
+      function drawGraph(){
+            counter++;
+            my_data[0] = Math.sin(counter*0.001);
+            my_data[1] = 0.4;
+            my_data[2] = Math.sin(counter*0.001);
+            console.log(my_data);
+
+            var myPieChart = new Chart(ctx,{
+               type: 'pie',
+               data: {
+               datasets: [{
+                   data: my_data,
+                   backgroundColor: my_colors
+               }],
+
+               // These labels appear in the legend and in the tooltips when hovering different arcs
+
+         },
+         options: {
+               responsive: false,
+               animation : false,
+               tooltips: {enabled: false},
+               hover: {mode: null},
+           }
+     });
+      }
+
+      function updateSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        drawGraph();
+
+      }
+
+      updateSize();
+
+      // resize the canvas to fill browser window dynamically
+      window.addEventListener('resize', updateSize, false);
+
+
+      function randColor() {
+            return '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+      }
+
+      function randNum() {
+            return Math.round(Math.random() * 100);
+      };
+
+      setInterval(drawGraph, 1);
+
+      </script>
+
+
+<!--
+  <canvas id="myCanvas" width="700" height="700"></canvas>
+
+  <script>
+    (function() {
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var running = false;
+
+      // resize the canvas to fill browser window dynamically
+      window.addEventListener('resize', resizeCanvas, false);
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        if (!running) {
+          setInterval(drawStuff, 200);
+          running = true;
+        }
+
+      }
+      resizeCanvas();
+
+      function drawStuff() {
+      }
+
+    })();
+  </script>
+-->
+</body>
+
+</html>
