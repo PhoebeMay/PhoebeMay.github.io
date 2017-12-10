@@ -38,7 +38,6 @@
       <script>
       var canvas = document.getElementById("myChart");
       var ctx = canvas.getContext('2d');
-      var my_data = [randNum(), randNum(), randNum()];
       var my_colors = [randColor(), randColor(), randColor()]
       var counter = 0;
       var myPieChart = null;
@@ -99,38 +98,6 @@
       setInterval(drawGraph, 1);
 
       </script>
-
-
-<!--
-  <canvas id="myCanvas" width="700" height="700"></canvas>
-
-  <script>
-    (function() {
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      var running = false;
-
-      // resize the canvas to fill browser window dynamically
-      window.addEventListener('resize', resizeCanvas, false);
-
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        if (!running) {
-          setInterval(drawStuff, 200);
-          running = true;
-        }
-
-      }
-      resizeCanvas();
-
-      function drawStuff() {
-      }
-
-    })();
-  </script>
--->
 </body>
 
 </html>
