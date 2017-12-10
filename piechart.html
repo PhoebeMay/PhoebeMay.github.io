@@ -41,6 +41,7 @@
       var my_data = [randNum(), randNum(), randNum()];
       var my_colors = [randColor(), randColor(), randColor()]
       var counter = 0;
+      var myPieChart = null;
 
 
       function drawGraph(){
@@ -50,7 +51,11 @@
             my_data[2] = Math.sin(counter*0.001) + Math.sin(counter*0.00001);
             console.log(my_data);
 
-            var myPieChart = new Chart(ctx,{
+            if (myPieChart != null){
+                  myPieChart.destroy();
+            }
+
+            myPieChart = new Chart(ctx,{
                type: 'pie',
                data: {
                datasets: [{
