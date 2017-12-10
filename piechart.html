@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Phoebe Nichols">
-  <meta name="description" content="Really stunning bar chart.">
+  <meta name="description" content="Really stunning pie chart.">
   <link rel="icon" href="icon.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -45,9 +45,9 @@
 
       function drawGraph(){
             counter++;
-            my_data[0] = Math.sin(counter*0.001);
+            my_data[0] = Math.sin(counter*0.001) + Math.sin(counter*0.00001);
             my_data[1] = 0.4;
-            my_data[2] = Math.sin(counter*0.001);
+            my_data[2] = Math.sin(counter*0.001) + Math.sin(counter*0.00001);
             console.log(my_data);
 
             var myPieChart = new Chart(ctx,{
